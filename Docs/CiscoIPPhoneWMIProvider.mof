@@ -1,0 +1,26 @@
+//==================================================================
+// Cisco IP Phone WMI Provider
+// Copyright (C) 2012 Sebastián Benítez <sebenitez@trabajo.gob.ar>
+// Copyright (C) 2012 Ministerio de Trabajo, Empleo y Seguridad Social
+//
+// Required to report Cisco IP Phones connected to clients.
+// The WMI provider MUST be installed in all clients along with
+// WinPCap driver.
+//==================================================================
+
+#pragma namespace ("\\\\.\\root\\CIMv2\\sms")
+
+[ SMS_Report(TRUE),
+	SMS_Group_Name("Cisco IP Phone"),
+	SMS_Class_ID("MTEYSS|CISCOIPPHONE|1.0"),
+	SMS_Namespace(FALSE),
+	Namespace("\\\\\\\\.\\\\root\\\\MTEySS")
+]
+class CiscoIPPhone : SMS_Class_Template
+{
+	[SMS_Report(TRUE),key]	string MacAddress;
+	[SMS_Report(TRUE)]		string IPAddress;
+	[SMS_Report(TRUE)]		string PhoneNumber;
+	[SMS_Report(TRUE)]		string Model;
+	[SMS_Report(TRUE)]		string SerialNumber;
+};

@@ -1,0 +1,2 @@
+1. Copy and paste the MOF definition from the file
+"CiscoIPPhoneWMIProvider.mof" in your sms_def.mof file.
